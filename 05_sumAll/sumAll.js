@@ -1,6 +1,12 @@
 const sumAll = function(from, to) {
     let sum = 0;
-    if (typeof from === 'number' && typeof to === 'number' && from > 0 && to > 0) {
+    function checkNumbers() {
+        return typeof from === 'number'
+        && typeof to === 'number'
+        && from > 0
+        && to > 0
+    }
+    if (checkNumbers()) {
        if (from < to) {
             for (let i = from; i <= to; i++) {
                 sum += i;
