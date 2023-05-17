@@ -1,21 +1,20 @@
 const sumAll = function(from, to) {
     let sum = 0;
     function checkNumbers() {
-        return typeof from === 'number'
-        && typeof to === 'number'
+        return typeof Number.isInteger(from)
+        && Number.isInteger(to)
         && from > 0
         && to > 0
     }
+    if (from > to) {
+        const min = to;
+        to = from;
+        from = min;
+    }
     if (checkNumbers()) {
-       if (from < to) {
-            for (let i = from; i <= to; i++) {
-                sum += i;
-            };
-        } else {
-            for (let i = to; i <= from; i++) {
-                sum += i;
-            }; 
-        }; 
+        for (let i = from; i <= to; i++) {
+            sum += i;
+        };
     } else return 'ERROR';
     return sum;
 };
